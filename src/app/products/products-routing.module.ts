@@ -7,7 +7,7 @@ import { LoginComponent} from '../auth/components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
   {

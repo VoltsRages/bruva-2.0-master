@@ -1,4 +1,7 @@
 <body>
+  <div class="row" *ngIf="authError">
+    <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+  </div>
   <div class="container">
 
 
@@ -8,9 +11,7 @@
 
       <div class="px-2">
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="jusify-content-center">
-          <div class="row" *ngIf="authError">
-            <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
-          </div>
+   
 
           <h2 class="text-center ont-weight-bold text-white tan">Login</h2>
           <div class="box">
@@ -36,7 +37,7 @@
           <br>
           <p class="text-white font-weight-bold klma">have not account yet?</p>
 
-          <a href="/register" class="zorar">Signup</a>
+          <a href="/src/app/auth/components/registration/registration" class="zorar">Signup</a>
 
 
 

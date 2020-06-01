@@ -1,4 +1,9 @@
 <body>
+  <div class="row" *ngIf="authError">
+    <div class="col-12 alert alert-danger">
+      {{ authError?.message }}
+    </div>
+  </div>
 <div class="container ">
 
 
@@ -11,11 +16,7 @@
       <form (ngSubmit)="createUser()" class="jusify-content-center">
 
 
-        <div class="row" *ngIf="authError">
-          <div class="col-12 alert alert-danger">
-            {{ authError?.message }}
-          </div>
-        </div>
+        
 
         <h2 class="text-center font-weight-bold text-white tan">Sign Up</h2>
 
