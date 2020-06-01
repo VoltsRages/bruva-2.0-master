@@ -1,5 +1,7 @@
 
-
+.body{
+    background-color: rgba(111,111,111,0.09);
+}
 #cover{
     height: 650px;
     background-image: url(/assets/cover.jpg);
@@ -50,7 +52,7 @@
     height:200px;
 }
 .card{
-    margin:15px;
+    margin:40px;
     
 }
 
