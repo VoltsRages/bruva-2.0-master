@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {AuthService} from './auth/services/auth/auth.service';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -20,6 +20,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
 
     
+  ],
+  providers: [
+    AuthService
   ],
   declarations: [
     AppComponent,

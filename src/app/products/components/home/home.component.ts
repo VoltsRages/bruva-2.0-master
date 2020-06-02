@@ -26,15 +26,10 @@ export class HomeComponent implements OnInit {
 this.add = +index  }
 
 buy(amount:number){
-  let selectedProducts = this.products[this.add]
-  let data = {
-    name: selectedProducts.name,
-    amount: +amount,
-    price: selectedProducts.Price
-  }
-  this.cs.addToCart(data).then(() => this.add = -1)
-}
-
+ let selectedProduct = this.products[this.add]
+ console.log(amount)
+   this.cs.addToCart(selectedProduct,amount)
+ }
 
 
 
