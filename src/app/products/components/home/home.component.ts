@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
+import { AuthService } from 'src/app/auth/services/auth/auth.service';
 
 
 @Component({
@@ -11,15 +12,19 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  user: firebase.User;
   products: Product[] = [];
   add: number= -1
 
-  constructor(private gs: ProductsService,private cs:CartService) { }
+  constructor(private auth: AuthService,private gs: ProductsService,private cs:CartService) { }
 
 
   ngOnInit(): void {
     this.gs.getAllProducts().subscribe(data => this.products = data);
+    this.auth.getUserState()
+      .subscribe( user => {
+        this.user = user;
+      })
   }
 
   addToCart(index:number) {

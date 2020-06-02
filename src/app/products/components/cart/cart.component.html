@@ -1,2 +1,15 @@
-<div *ngFor="let product of products">  {{ product | json }} </div>
-     
+
+<div class="container ">
+    <div class="row ">
+        <div *ngFor="let order of orders" >  
+          <div class="card" style="width: 17rem;"></div>
+             <div class="card-body text-center">   
+                <h5 class="card-title"> </h5>
+                <p>{{ order.amount }}</p>
+                <p>{{ order.product.name }} </p>
+                <img [src]="order.product.image1">
+            </div>
+             </div>
+             </div>
+</div>
+
