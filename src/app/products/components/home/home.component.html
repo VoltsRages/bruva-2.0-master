@@ -3,8 +3,8 @@
   <div class="cover-info">
     <div class="cover-content">
         <div class="container">
-            <h1>LETS WORK ON SOMETHING INTERESTING TODAY</h1>
-            <h3>Frontend Developer based in London UK</h3>
+            <h1>Welcome to Bruva, Have a Pleasant Shopping Experience !</h1>
+            <h3>The Next Egyptian Shopfront</h3>
             <a class="button">SHOP NOW »</a>
 
         </div>
@@ -26,7 +26,7 @@
                   <button class="btn btn-danger" (click)="addToCart(i)" *ngIf="add !== i"><i class="fa fa-cart-plus" aria-hidden="true"></i>
                     Add to cart</button>
                     <div *ngIf="add === i">
-                      <input type="number" class="form-control" placeholder="Amount" #amount>
+                      <input type="number" class="form-control" value="1" placeholder="Amount" #amount>
                       <button class="btn btn-danger" (click)="buy(amount.value)">Buy</button>
                     </div>
                 </div>

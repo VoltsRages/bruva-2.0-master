@@ -24,7 +24,14 @@ export class CartComponent implements OnInit {
      querySnapshot.forEach(doc => {
            this.orders.push(doc.data())
          })})
+        
          
+
   }
- 
+  delete(index){
+    this.cs.delete(this.orders[index].id)
+  }
+ save(index){
+   this.cs.save(this.orders[index].id, this.orders[index].amount)
+ }
 }

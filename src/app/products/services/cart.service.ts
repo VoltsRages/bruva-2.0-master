@@ -33,5 +33,20 @@ export class CartService {
       getCart(productId) {
         return this.fs.collection('products').doc(productId).get();
       }
+      delete(id){
+        return this.auth.getUserState().pipe(switchMap(user => {
+
+        return this.fs.doc(`Users/${user.uid}/cart/${id}`).delete()
+        }));
+      }
+
+      save(id, amount){
+        return this.auth.getUserState().pipe(switchMap(user => {
+
+          return this.fs.doc(`Users/${user.uid}/cart/${id}`).update({
+            amount
+          })
+          }));
+      }
 }
 

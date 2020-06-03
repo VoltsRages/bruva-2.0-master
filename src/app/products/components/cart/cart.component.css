@@ -1,0 +1,26 @@
+body{
+    margin-top:20px;
+}
+.sora{
+    height:60px;
+    width:70px;
+}
+.remove {
+    background: none;
+    border: none;
+    height: auto;
+}
+input{
+    font-weight: bold;
+    text-align: center;
+    background: rgb(36, 35, 35);
+    color: white;
+    font-size: 20px;
+    height: 25px;
+    margin: 16px 0;
+    border: 0px;
+    border-radius: 4px;
+}
+.remove:hover {
+    color: #CB4335;
+}
