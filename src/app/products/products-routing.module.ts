@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
+import { FavoritesComponent} from './components/favorites/favorites.component';
 import { ProductInfoComponent } from './components/product-info/product-info.component';
 import { LoginComponent} from '../auth/components/login/login.component';
 
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'favorites',
+    component: FavoritesComponent
   },
   {
     path: 'product-info/:id',

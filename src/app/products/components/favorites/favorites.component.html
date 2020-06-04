@@ -1,7 +1,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <h1>Cart</h1>
+            <h1>Favorites</h1>
         </div>
         <div class="table-responsive">
             <table class="table">
@@ -10,7 +10,7 @@
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Amount</th>
+                        
                         <th scope="col">Total</th>
                         <th scope="col">Options</th>
                         <th scope="col"></th>
@@ -18,20 +18,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let order of orders; index as i">
-                        <td><img [src]="order.product.image1" class="sora">
+                    <tr *ngFor="let favorite of favorites; index as i">
+                        <td><img [src]="favorite.product.image1" class="sora">
                         </td>
-                        <td>{{ order.product.name | titlecase}}</td>
-                        <td>{{ order.product.Price }}</td>
-                        <td><input type="number" placeholder="Amount" [(ngModel)]="order.amount"></td>
-                        <td>{{ order.amount * order.product.Price | currency }}
-                        </td>
-                        <td>
+                        <td>{{ favorite.product.name | titlecase}}</td>
+                        <td>{{ favorite.product.name | titlecase}}</td>
+                        <td>{{ favorite.product.Price }}</td>
+                        
+                        
+                        
+                        <!-- <td>
                             <button class="btn btn-danger" (click)="save(i)">Save</button>
                         </td>
                         <td> <button class="btn" (click)="delete"><i class="remove fa-lg fa fa-trash" aria-hidden="true"></i>
                         </button>
-                        </td>
+                        </td> -->
 
 
                     </tr>

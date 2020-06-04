@@ -23,8 +23,8 @@
                 <div class="card-body text-center">
                   <h5 class="card-title">{{ product.name | titlecase }}</h5>
                   <p class="card-text">{{ product.Price | currency }}</p>
-                  <button class="btn btn-danger" (click)="addToCart(i)" *ngIf="add !== i"><i class="fa fa-cart-plus" aria-hidden="true"></i>
-                    Add to cart</button>
+                  <button class="btn btn-danger" (click)="addToCart(i)" *ngIf="add !== i"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                  <button class="btn btn-danger" (click)="addToFavorites(i)" *ngIf="add !== i"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to Favorites</button>
                     <div *ngIf="add === i">
                       <input type="number" class="form-control" value="1" placeholder="Amount" #amount>
                       <button class="btn btn-danger" (click)="buy(amount.value)">Buy</button>

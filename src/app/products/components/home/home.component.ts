@@ -4,7 +4,7 @@ import { Product } from '../../interfaces/product.interface';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
 import { AuthService } from 'src/app/auth/services/auth/auth.service';
-
+import {FavoritesService} from 'src/app/products/services/favorites.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   products: Product[] = [];
   add: number= -1
 
-  constructor(private auth: AuthService,private gs: ProductsService,private cs:CartService) { }
+  constructor(private auth: AuthService,private gs: ProductsService,private cs:CartService, private fs:FavoritesService) { }
 
 
   ngOnInit(): void {
@@ -30,10 +30,14 @@ export class HomeComponent implements OnInit {
   addToCart(index:number) {
 this.add = +index  }
 
+addToFavorites(index:number) {
+  this.add = +index  }
+
 buy(amount:number){
  let selectedProduct = this.products[this.add]
  console.log(amount)
    this.cs.addToCart(selectedProduct,amount)
+   this.fs.addToFavorites(selectedProduct,amount)
  }
 
 
