@@ -14,10 +14,10 @@ export class FavoritesService {
    
   constructor(private fs:AngularFirestore,private auth: AuthService, private as:AuthService) { }
 
-  addToFavorites(product: Product,amount:number){
-      console.log (product,amount)
+  addToFavorites(product: Product){
+      console.log (product)
       this.auth.getUserState().pipe(switchMap(user => {(user); 
-        return this.fs.collection(`Users/${user.uid}/favorites`).add({product,amount})}) ).subscribe()
+        return this.fs.collection(`Users/${user.uid}/favorites`).add({product})}) ).subscribe()
    
     
   }

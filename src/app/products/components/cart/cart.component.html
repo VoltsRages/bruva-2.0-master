@@ -1,8 +1,13 @@
 <body>
-    <div class="container">
-        <div class="row">
-            <h1>Cart</h1>
+    <section id="cover">
+        <div class="cover-info">
+            <div class="container">
+                <h1><b>Checkout</b></h1>
+            </div>
         </div>
+    </section>
+    <div class="container">
+
         <div class="table-responsive">
             <table class="table">
                 <thead class="thead-dark">
@@ -10,7 +15,7 @@
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Amount</th>
+                        <th scope="col" >Amount</th>
                         <th scope="col">Total</th>
                         <th scope="col">Options</th>
                         <th scope="col"></th>
@@ -39,5 +44,6 @@
             </table>
 
         </div>
+            <button class=" btn-lg float-right btn btn-danger" routerLink="/products/checkout">Checkout</button>
     </div>
 </body>

@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FavoritesComponent } from './products/components/favorites/favorites.component';
+import { CheckoutComponent } from './products/components/checkout/checkout.component';
 
 
 
@@ -31,6 +32,7 @@ import { FavoritesComponent } from './products/components/favorites/favorites.co
     AppComponent,
     NavbarComponent,
     FavoritesComponent,
+    CheckoutComponent
   ],
   bootstrap: [AppComponent]
 })

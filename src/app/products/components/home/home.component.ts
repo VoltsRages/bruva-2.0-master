@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   products: Product[] = [];
   add: number= -1
 
+
   constructor(private auth: AuthService,private gs: ProductsService,private cs:CartService, private fs:FavoritesService) { }
 
 
@@ -25,20 +26,22 @@ export class HomeComponent implements OnInit {
       .subscribe( user => {
         this.user = user;
       })
+
   }
 
   addToCart(index:number) {
-this.add = +index  }
-
+    let selectedProduct = this.products [this.add = +index] 
+    console.log (index);
+    this.cs.addToCart(selectedProduct)
+  }
 addToFavorites(index:number) {
-  this.add = +index  }
+  let selectedProduct = this.products [this.add = +index] 
+  console.log (index);
+  this.fs.addToFavorites(selectedProduct)
+}
 
-buy(amount:number){
- let selectedProduct = this.products[this.add]
- console.log(amount)
-   this.cs.addToCart(selectedProduct,amount)
-   this.fs.addToFavorites(selectedProduct,amount)
- }
+
+
 
 
 

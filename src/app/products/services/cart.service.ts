@@ -14,10 +14,10 @@ export class CartService {
    
   constructor(private fs:AngularFirestore,private auth: AuthService, private as:AuthService) { }
 
-  addToCart(product: Product,amount:number){
-      console.log (product,amount)
+  addToCart(product: Product){
+      console.log (product)
       this.auth.getUserState().pipe(switchMap(user => {(user); 
-        return this.fs.collection(`Users/${user.uid}/cart`).add({product,amount})}) ).subscribe()
+        return this.fs.collection(`Users/${user.uid}/cart`).add({product})}) ).subscribe()
    
     
   }
