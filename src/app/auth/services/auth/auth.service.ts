@@ -11,7 +11,7 @@ export class AuthService {
   eventAuthError$ = this.eventAuthError.asObservable();
 
   newUser: any;
-
+  
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFirestore,

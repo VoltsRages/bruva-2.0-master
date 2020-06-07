@@ -60,3 +60,10 @@
     height:100px;
     background-color: grey;
 }
+.fa-heart{
+    color:#fff
+}
+.fa-heart:hover{
+    color:#dc3545;
+    
+}

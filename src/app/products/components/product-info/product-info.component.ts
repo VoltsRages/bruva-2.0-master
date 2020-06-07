@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '../../interfaces/product.interface';
 import { ProductsService } from '../../services/products.service';
+import { CartService } from '../../services/cart.service';
+import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-product-info',
@@ -14,7 +16,7 @@ export class ProductInfoComponent implements OnInit {
 
   product: Product;
 
-  constructor(private route: ActivatedRoute, private gs: ProductsService) { }
+  constructor(private route: ActivatedRoute, private gs: ProductsService,private cs :CartService, private fs :FavoritesService) { }
 
   ngOnInit(): void {
     const productId = this.route.snapshot.params.id;
@@ -24,6 +26,12 @@ export class ProductInfoComponent implements OnInit {
       }
     });
   }
-  
-
+  addToCart(product:Product) {
+    
+    this.cs.addToCart(product)
+  }
+addToFavorites(product:Product )  {
+this.fs.addToFavorites(product)
+}  
 }
+ 

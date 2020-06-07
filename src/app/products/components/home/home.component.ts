@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
-
+import { AuthService } from 'src/app/auth/services/auth/auth.service';
+import {FavoritesService} from 'src/app/products/services/favorites.service';
 
 @Component({
   selector: 'app-home',
@@ -11,29 +12,35 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  user: firebase.User;
   products: Product[] = [];
   add: number= -1
 
-  constructor(private gs: ProductsService,private cs:CartService) { }
+
+  constructor(private auth: AuthService,private gs: ProductsService,private cs:CartService, private fs:FavoritesService) { }
 
 
   ngOnInit(): void {
     this.gs.getAllProducts().subscribe(data => this.products = data);
+    this.auth.getUserState()
+      .subscribe( user => {
+        this.user = user;
+      })
+
   }
 
   addToCart(index:number) {
-this.add = +index  }
-
-buy(amount:number){
-  let selectedProducts = this.products[this.add]
-  let data = {
-    name: selectedProducts.name,
-    amount: +amount,
-    price: selectedProducts.Price
+    let selectedProduct = this.products [this.add = +index] 
+    console.log (index);
+    this.cs.addToCart(selectedProduct)
   }
-  this.cs.addToCart(data).then(() => this.add = -1)
+addToFavorites(index:number) {
+  let selectedProduct = this.products [this.add = +index] 
+  console.log (index);
+  this.fs.addToFavorites(selectedProduct)
 }
+
+
 
 
 
