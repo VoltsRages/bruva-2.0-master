@@ -8,9 +8,9 @@
     </section>
     <div class="container">
 
-        <div class="table-responsive">
+        <div class="table-responsive w-auto">
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead-striped">
                     <tr>
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
@@ -32,7 +32,7 @@
                         <td>{{ order.amount * order.product.Price | currency }}
                         </td>
                         <td>
-                            <button class="btn btn-danger" (click)="save(i)">Save</button>
+                            <button class="btn btn-warning" (click)="save(i)">Save</button>
                         </td>
                         <td> <button class="btn" (click)="delete(order.id)"><i class="remove fa-lg fa fa-trash" aria-hidden="true"></i>
                         </button>
@@ -44,6 +44,6 @@
             </table>
 
         </div>
-            <button class=" btn-lg float-right btn btn-danger" routerLink="/products/checkout">Checkout</button>
+            <button class=" btn-lg float-right btn btn-warning" routerLink="/products/checkout">Checkout</button>
     </div>
 </body>
