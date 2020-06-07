@@ -14,10 +14,10 @@ export class FavoritesService {
    
   constructor(private fs:AngularFirestore,private auth: AuthService, private as:AuthService) { }
 
-  addToFavorites(product: Product,amount:number){
-      console.log (product,amount)
+  addToFavorites(product: Product){
+      console.log (product)
       this.auth.getUserState().pipe(switchMap(user => {(user); 
-        return this.fs.collection(`Users/${user.uid}/favorites`).add({product,amount})}) ).subscribe()
+        return this.fs.collection(`Users/${user.uid}/favorites`).add({product})}) ).subscribe()
    
     
   }
@@ -33,20 +33,13 @@ export class FavoritesService {
       getFavorites(productId) {
         return this.fs.collection('products').doc(productId).get();
       }
-      // delete(id){
-      //   return this.auth.getUserState().pipe(switchMap(user => {
+      delete(id){
+        return this.auth.getUserState().pipe(switchMap(user => {
 
-      //   return this.fs.doc(`Users/${user.uid}/cart/${id}`).delete()
-      //   }));
-      // }
+        return this.fs.doc(`Users/${user.uid}/favorites/${id}`).delete()
+        }));
+     }
 
-      // save(id, amount){
-      //   return this.auth.getUserState().pipe(switchMap(user => {
-
-      //     return this.fs.doc(`Users/${user.uid}/cart/${id}`).update({
-      //       amount
-      //     })
-      //     }));
-      // }
+      
 }
 

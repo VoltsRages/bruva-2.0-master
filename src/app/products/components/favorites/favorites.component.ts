@@ -10,28 +10,31 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 
 export class FavoritesComponent implements OnInit {
-  user: firebase.User
+
  
-  fs: AngularFirestore
+
   
   favorites: any [] = []
-  constructor( private cs:FavoritesService) { }
+  constructor( private fs:FavoritesService) { }
 
   ngOnInit(): void {
    
-    this.cs.getProduct().subscribe(querySnapshot => {
+    this.fs.getProduct().subscribe(querySnapshot => {
       //console.log(querySnapshot.data())
-     querySnapshot.forEach(doc => {
-           this.favorites.push(doc.data())
-         })})
+      querySnapshot.forEach(doc => {
+        this.favorites.push({...doc.data(), id: doc.id})
+      })})
         
          
 
   }
-//   delete(index){
-//     this.cs.delete(this.orders[index].id)
-//   }
-//  save(index){
-//    this.cs.save(this.orders[index].id, this.orders[index].amount)
-//  }
+  delete(id) {
+    this.fs.delete(id).subscribe(() => {
+      this.favorites = this.favorites.filter((favorite) => favorite.id !== id);
+    });
+}
+
+save(index) { 
+
+}
 }
